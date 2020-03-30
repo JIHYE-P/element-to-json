@@ -32,7 +32,7 @@ if(typeof document !== 'undefined') {
     const stack = [result];
 
     let target;
-    while (target = stack.shift()) { // 빈배열이 될 때 까지 반복문 실행 
+    while (target = stack.shift()) { // target 빈 배열이 될 때 까지 반복문 실행 
       // 자식이 있을 경우 스택에 추가
       [...target.node.children].forEach((node) => stack.push({node, children: [], parent: target}));
       // 부모 객체와 자식객체 연결 
