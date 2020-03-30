@@ -74,7 +74,7 @@ const dom2json = root => {
   const result = {node: root, childNodes: [], parent: null};
   const stack = [result];
   let target;
-  while (target = stack.shift()) {
+  while (target = stack.shift()) { // target 빈 배열이 될 때 까지 반복분 실행
     // 부모 객체와 자식객체 연결 
     if (target.parent === null) {}
     else target.parent.childNodes.push(target);
