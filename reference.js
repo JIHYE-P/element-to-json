@@ -69,3 +69,20 @@ const recurExplorer = (target, f = (item) => {}) => {
   else if (isObject(target)) for (const key in target) recurExplorer(target[key], f);
   else f(target);
 };
+
+const dom2json = root => {
+  const result = {node: root, childNodes: [], parent: null};
+  const stack = [result];
+  let target;
+  while (target = stack.shift()) {
+    // 부모 객체와 자식객체 연결 
+    if (target.parent === null) {}
+    else target.parent.childNodes.push(target);
+    // 자식이 있을 경우 스택에 추가
+    [...target.node.childNodes].forEach((node) => stack.push({node, childNodes: [], parent: target}));
+  }
+  console.log(result)
+  return result;
+};
+
+// dom2json(document.body);
